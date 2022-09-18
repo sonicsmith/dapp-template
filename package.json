@@ -4,6 +4,7 @@
   "description": "A base template for creating dapps with CI/CD",
   "main": "index.js",
   "scripts": {
+    "start": "npx hardhat node",
     "test": "npx hardhat test",
     "lint": "solhint 'contracts/*'",
     "coverage": "npx hardhat coverage",
