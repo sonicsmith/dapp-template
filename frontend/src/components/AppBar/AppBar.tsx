@@ -1,4 +1,4 @@
-import { Box, Flex, Button, Text, Spacer } from "@chakra-ui/react";
+import { Box, Flex, Text, Spacer } from "@chakra-ui/react";
 import ConnectButton from "../ConnectButton/ConnectButton";
 
 export default function AppBar(props: any) {

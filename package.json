@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "npx hardhat node",
+    "compile": "npx hardhat compile",
     "test": "npx hardhat test",
     "lint": "solhint 'contracts/*'",
     "coverage": "npx hardhat coverage",
-    "deploy": "npx hardhat run scripts/deploy.ts"
+    "deploy": "npx hardhat run scripts/deploy.ts",
+    "deploy:local": "npx hardhat run --network localhost scripts/deploy.ts"
   },
   "author": "",
   "license": "ISC",

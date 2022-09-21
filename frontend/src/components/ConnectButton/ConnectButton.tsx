@@ -1,41 +1,37 @@
 import { Button } from "@chakra-ui/react";
 import { useWeb3React } from "@web3-react/core";
-import { useCallback, useEffect, useState } from "react";
-import { getErrorMessage } from "../../utils/getErrorMessage";
-import { Provider } from "../../utils/provider";
-import { injected } from "../../utils/connectors";
+import { useCallback, useState } from "react";
+import type { Web3Provider } from "@ethersproject/providers";
 import useAppNotification, { Status } from "../../providers/AppNotification";
 import { getShortAddress } from "../../utils/getShortAddress";
 
 const ConnectButton = () => {
-  const context = useWeb3React<Provider>();
+  const context = useWeb3React<Web3Provider>();
   const [activating, setActivating] = useState<boolean>(false);
   const setNotification = useAppNotification();
 
-  const { error, activate, active } = context;
-
-  useEffect(() => {
-    if (error) {
-      const description = getErrorMessage(error);
-      console.log(description);
-      setNotification!!({
-        title: "Error Connecting",
-        description,
-        status: Status.Error,
-      });
-    }
-  }, [error, setNotification]);
+  const { isActive, connector } = context
 
   const connectToWallet = useCallback(async () => {
     console.log("Connecting to wallet");
     setActivating(true);
-    await activate(injected);
+    try {
+      await connector.activate();
+    } catch (e) {
+      setNotification!!({
+        title: "Error Connecting",
+        description: (e as any).message,
+        status: Status.Error,
+      });
+    }
     setActivating(false);
-  }, [activate, setActivating]);
+  }, [setActivating, setActivating, setNotification]);
+
+  const buttonLabel = isActive ? getShortAddress(context.account!) : "Connect Wallet"
 
   return (
-    <Button onClick={connectToWallet} disabled={activating}>
-      {active ? getShortAddress(context.account!) : "Connect Wallet"}
+    <Button onClick={connectToWallet} disabled={isActive || activating}>
+      {buttonLabel}
     </Button>
   );
 };

@@ -1,8 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ChakraProvider } from "@chakra-ui/react";
-import { Web3ReactProvider } from "@web3-react/core";
-import { getProvider } from "./utils/provider";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
@@ -12,11 +9,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Web3ReactProvider getLibrary={getProvider}>
-      <ChakraProvider>
-        <App />
-      </ChakraProvider>
-    </Web3ReactProvider>
+    <App />
   </React.StrictMode>
 );
 

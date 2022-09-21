@@ -26,6 +26,18 @@ npm run test
 npm run deploy
 ```
 
+### Start a local node
+
+```shell
+npm start
+```
+
+Open a new terminal and deploy the smart contract in the localhost network
+
+```shell
+npx hardhat run --network localhost scripts/deploy.ts
+```
+
 ---
 
 TODO: Implement [Mythril](https://github.com/ConsenSys/mythril)
