@@ -1,5 +1,7 @@
 import { ChainId } from "./utils/getInjectedConnectors";
 
+const devContractAddress = process.env.REACT_APP_DEV_CONTRACT || "";
+
 export const contractAddress: { [key: number]: string } = {
   [ChainId.Ethereum]: "0x",
   [ChainId.Ropsten]: "0x",
@@ -7,5 +9,5 @@ export const contractAddress: { [key: number]: string } = {
   [ChainId.Görli]: "0x",
   [ChainId.Kovan]: "0x",
   [ChainId.Polygon]: "0x",
-  [ChainId.GoChain]: "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+  [ChainId.GoChain]: devContractAddress,
 };
