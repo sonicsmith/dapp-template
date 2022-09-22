@@ -2,7 +2,12 @@
 
 Fullstack web3 application template
 
-### Build status: [![Lint & Test](https://github.com/sonicsmith/dapp-template/actions/workflows/lint-and-test.yml/badge.svg)](https://github.com/sonicsmith/dapp-template/actions/workflows/lint-and-test.yml)
+### Build status:
+
+- Contracts
+  [![Lint & Test](https://github.com/sonicsmith/dapp-template/actions/workflows/lint-and-test.yml/badge.svg)](https://github.com/sonicsmith/dapp-template/actions/workflows/lint-and-test-contracts.yml)
+- Frontend
+  [![Lint & Test](https://github.com/sonicsmith/dapp-template/actions/workflows/lint-and-test.yml/badge.svg)](https://github.com/sonicsmith/dapp-template/actions/workflows/lint-and-test-frontend.yml)
 
 <br>
 
